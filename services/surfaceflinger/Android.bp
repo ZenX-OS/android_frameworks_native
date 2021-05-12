@@ -8,6 +8,8 @@ cc_defaults {
         "-Wunused",
         "-Wunreachable-code",
         "-Wconversion",
+        "-O3",
+        "-g0"
     ],
 }
 
@@ -117,6 +119,10 @@ cc_defaults {
     ],
     lto: {
         thin: true,
+    },
+    pgo: {
+        sampling: true,
+        profile_file: "surfaceflinger/surfaceflinger.profdata",
     },
     // TODO(b/131771163): Fix broken fuzzer support with LTO.
     sanitize: {
